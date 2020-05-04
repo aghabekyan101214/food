@@ -19,7 +19,7 @@
     <link href="{{asset('assets/css/colors/default.css')}}" id="theme" rel="stylesheet">
 
     {{--custom style--}}
-    @stack('custom-style')
+    @stack('head')
 </head>
 
 <body class="fix-sidebar">
@@ -79,27 +79,27 @@
 
             <ul class="nav" id="side-menu">
 
-                <li><a href="/admin" class="waves-effect"><i class="mdi mdi-home fa-fw"></i>
-                        <span class="hide-menu">Home</span></a>
+                <li><a href="/admin/categories" class="waves-effect"><i class="mdi mdi-hamburger fa-fw"></i>
+                        <span class="hide-menu">Categories</span></a>
                 </li>
 
                 <li class="devider"></li>
 
 
-                <li>
-                    <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-barley fa-fw"></i> <span
-                            class="hide-menu">Teams<span class="fa arrow"></span></span>
-                    </a>
-                    <ul class="nav nav-second-level">
-                        <li><a href="/admin/teams" class="waves-effect"><i class="mdi mdi-steam fa-fw"></i>
-                                <span class="hide-menu">Teams (Academic)</span></a>
-                        </li>
+{{--                <li>--}}
+{{--                    <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-barley fa-fw"></i> <span--}}
+{{--                            class="hide-menu">Teams<span class="fa arrow"></span></span>--}}
+{{--                    </a>--}}
+{{--                    <ul class="nav nav-second-level">--}}
+{{--                        <li><a href="/admin/teams" class="waves-effect"><i class="mdi mdi-steam fa-fw"></i>--}}
+{{--                                <span class="hide-menu">Teams (Academic)</span></a>--}}
+{{--                        </li>--}}
 
-                        <li><a href="/admin/league" class="waves-effect"><i class="mdi mdi-windows fa-fw"></i>
-                                <span class="hide-menu">Teams (League)</span></a>
-                        </li>
-                    </ul>
-                </li>
+{{--                        <li><a href="/admin/league" class="waves-effect"><i class="mdi mdi-windows fa-fw"></i>--}}
+{{--                                <span class="hide-menu">Teams (League)</span></a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
 
 
             </ul>
@@ -139,6 +139,6 @@
 <script src="{{asset('assets/js/custom.min.js')}}"></script>
 
 {{--custom script--}}
-@stack('custom-script')
+@stack('foot')
 
 </html>
