@@ -33,5 +33,5 @@ Auth::routes([
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('/', 'AdminController');
     Route::resource('/categories', 'CategoryController');
-
+    Route::resource('/products', 'ProductController');
 });

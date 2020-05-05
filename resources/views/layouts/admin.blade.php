@@ -83,6 +83,10 @@
                         <span class="hide-menu">Categories</span></a>
                 </li>
 
+                <li><a href="/admin/products" class="waves-effect"><i class="mdi mdi-food-apple fa-fw"></i>
+                        <span class="hide-menu">Products</span></a>
+                </li>
+
                 <li class="devider"></li>
 
 
