@@ -10,9 +10,13 @@ class Admin extends Authenticatable
 {
     use Notifiable;
 
+    const ROLE = [
+        "superadmin" => 1,
+        'admin' => 2,
+    ];
+
     /**
      * The attributes that are mass assignable.
-     *
      * @var array
      */
     protected $fillable = [
@@ -21,7 +25,6 @@ class Admin extends Authenticatable
 
     /**
      * The attributes that should be hidden for arrays.
-     *
      * @var array
      */
     protected $hidden = [
@@ -30,7 +33,6 @@ class Admin extends Authenticatable
 
     /**
      * The attributes that should be cast to native types.
-     *
      * @var array
      */
     protected $casts = [
