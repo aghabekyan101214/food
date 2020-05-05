@@ -160,4 +160,15 @@ class ProductController extends Controller
 
         return redirect(self::ROUTE);
     }
+
+
+
+    public function destroy_image($product, $id)
+    {
+        $image = ProductsImage::find($id);
+        Storage::delete("$image->image");
+        ProductsImage::destroy($image->id);
+        return redirect(self::ROUTE . '/' . $product . '/edit');
+    }
+
 }

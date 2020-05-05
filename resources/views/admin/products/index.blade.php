@@ -30,7 +30,7 @@
                                 <td>{{$key + 1}}</td>
                                 <td>{{$val->name}}</td>
                                 <td>
-                                    <img src="{{asset('uploads')."/".$val->image[0]->image}}" alt="{{$val->name}}" class="img img-responsive">
+                                    <img src="{{asset('uploads')."/".$val->image[0]->image}}" alt="{{$val->name}}" width="250" class="img img-responsive">
                                 </td>
                                 <td>{{$val->description}}</td>
                                 <td>{{$val->category->name}}</td>

@@ -109,6 +109,54 @@
             </div>
         </div>
     </div>
+
+    {{--image part--}}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">Edit {{$title}} Images</div>
+                <div class="panel-wrapper collapse in" aria-expanded="true">
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table id="datatable" class="display table table-hover table-striped nowrap" cellspacing="0"
+                                   width="100%">
+                                <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Image</th>
+                                    <th>Options</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($product->image as $key=>$val)
+                                    <tr>
+                                        <td>{{$key + 1}}</td>
+                                        <td>
+                                            <img src="{{ asset("/uploads/".$val->image)}}" alt="{{$val->name}}" class="img-responsive" width="250">
+                                        </td>
+                                        <td>
+                                            <form style="display: inline-block" action="{{ $route."/".$product->id."/destroy-image/".$val->id }}"
+                                                  method="post" id="work-for-form">
+                                                @csrf
+                                                @method("DELETE")
+                                                <a href="javascript:void(0);" data-text="Product Image" class="delForm" data-id ="{{$val->id}}">
+                                                    <button data-toggle="tooltip"
+                                                            data-placement="top" title="Remove"
+                                                            class="btn btn-danger btn-circle tooltip-danger"><i
+                                                            class="fas fa-trash"></i></button>
+                                                </a>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @push('head')
@@ -116,9 +164,8 @@
         textarea {
             resize: none;
         }
-
-        input#file-upload-button{
-            display: none;
-        }
     </style>
+@endpush
+@push('foot')
+    <script src="{{asset('assets/plugins/swal/sweetalert.min.js')}}"></script>
 @endpush
