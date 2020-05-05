@@ -29,7 +29,7 @@
         <div class="navbar-header">
             <div class="top-left-part">
                 <a class="logo" href="/admin">
-{{--add image for logo --}}
+                    {{--add image for logo --}}
                 </a>
             </div>
 
@@ -79,6 +79,12 @@
 
             <ul class="nav" id="side-menu">
 
+                @if(Auth::user()->role == 1)
+                    <li><a href="/admin/admins" class="waves-effect"><i class="mdi mdi-account-star-variant fa-fw"></i>
+                            <span class="hide-menu">Admins</span></a>
+                    </li>
+                @endif
+
                 <li><a href="/admin/categories" class="waves-effect"><i class="mdi mdi-hamburger fa-fw"></i>
                         <span class="hide-menu">Categories</span></a>
                 </li>
@@ -90,20 +96,20 @@
                 <li class="devider"></li>
 
 
-{{--                <li>--}}
-{{--                    <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-barley fa-fw"></i> <span--}}
-{{--                            class="hide-menu">Teams<span class="fa arrow"></span></span>--}}
-{{--                    </a>--}}
-{{--                    <ul class="nav nav-second-level">--}}
-{{--                        <li><a href="/admin/teams" class="waves-effect"><i class="mdi mdi-steam fa-fw"></i>--}}
-{{--                                <span class="hide-menu">Teams (Academic)</span></a>--}}
-{{--                        </li>--}}
+                {{--                <li>--}}
+                {{--                    <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-barley fa-fw"></i> <span--}}
+                {{--                            class="hide-menu">Teams<span class="fa arrow"></span></span>--}}
+                {{--                    </a>--}}
+                {{--                    <ul class="nav nav-second-level">--}}
+                {{--                        <li><a href="/admin/teams" class="waves-effect"><i class="mdi mdi-steam fa-fw"></i>--}}
+                {{--                                <span class="hide-menu">Teams (Academic)</span></a>--}}
+                {{--                        </li>--}}
 
-{{--                        <li><a href="/admin/league" class="waves-effect"><i class="mdi mdi-windows fa-fw"></i>--}}
-{{--                                <span class="hide-menu">Teams (League)</span></a>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
-{{--                </li>--}}
+                {{--                        <li><a href="/admin/league" class="waves-effect"><i class="mdi mdi-windows fa-fw"></i>--}}
+                {{--                                <span class="hide-menu">Teams (League)</span></a>--}}
+                {{--                        </li>--}}
+                {{--                    </ul>--}}
+                {{--                </li>--}}
 
 
             </ul>
@@ -126,7 +132,7 @@
             <!-- .row -->
 
         </div>
-        <footer class="footer text-center"> 2020 &copy; Created By David Kocharyan. </footer>
+        <footer class="footer text-center"> 2020 &copy; Created By David Kocharyan.</footer>
     </div>
 </div>
 
