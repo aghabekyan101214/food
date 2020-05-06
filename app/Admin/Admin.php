@@ -11,7 +11,7 @@ class Admin extends Authenticatable
     use Notifiable;
 
     const ROLE = [
-        "superadmin" => 1,
+        "super" => 1,
         'admin' => 2,
     ];
 

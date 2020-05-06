@@ -23,67 +23,23 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-md-2">{{$title}} Category</label>
+                                    <label class="control-label col-md-2">{{$title}} Email</label>
                                     <div class="col-md-9">
-                                        <select name="category" required class="form-control">
-                                            @foreach($category as $key)
-                                                <option value="{{$key->id}}" @if($key->id == old('category')) selected @endif >{{$key->name}}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('category')
+                                        <input type="email" placeholder="Email" value="{{old("email") }}" required class="form-control" name="email">
+                                        @error('email')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-md-2">{{$title}} Description</label>
+                                    <label class="control-label col-md-2">{{$title}} Password</label>
                                     <div class="col-md-9">
-                                        <textarea name="description" cols="30"  rows="10" required class="form-control">{{old('description')}}</textarea>
-                                        @error('description')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="control-label col-md-2">{{$title}} Weight</label>
-                                    <div class="col-md-9">
-                                        <input type="text" placeholder="Weight" value="{{old("weight") }}" class="form-control" name="weight">
-                                        @error('weight')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="control-label col-md-2">{{$title}} Quantity</label>
-                                    <div class="col-md-9">
-                                        <input type="text" placeholder="Quantity" value="{{old("quantity") }}" class="form-control" name="quantity">
-                                        @error('quantity')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="control-label col-md-2">{{$title}} Price</label>
-                                    <div class="col-md-9">
-                                        <input type="text" placeholder="Price" value="{{old("price") }}" required class="form-control" name="price">
-                                        @error('price')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div>
-
-
-                                <div class="form-group">
-                                    <label class="control-label col-md-2">{{$title}} Images (Multiple)</label>
-                                    <div class="col-md-9">
-                                        <input type="file" placeholder="Images" required multiple class="form-control" name="images[]">
-                                        @error('images')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
+                                        <input type="text" class="form-control" id="password"  placeholder="Password (for login)" name="password" value="{{old('password')}}">
+                                            @error('password')
+                                            <p class="invalid-feedback text-danger" role="alert"><strong>{{ $message }}</strong></p>
+                                            @enderror
+                                        <button type="button" class="pass btn btn-primary m-t-5">Generate Password</button>
                                     </div>
                                 </div>
 
@@ -110,14 +66,23 @@
     </div>
 @endsection
 
-@push('head')
-    <style>
-        textarea {
-            resize: none;
-        }
+@push('foot')
+    <script !src="">
+        $(document).ready(function () {
+            $('.pass').click(function () {
+                var pass = generatePassword();
+                $('#password').val(pass);
+            });
 
-        input#file-upload-button{
-            display: none;
-        }
-    </style>
-@endpush
+            function generatePassword() {
+                var length = 8,
+                    charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+                    retVal = "";
+                for (var i = 0, n = charset.length; i < length; ++i) {
+                    retVal += charset.charAt(Math.floor(Math.random() * n));
+                }
+                return retVal;
+            }
+        })
+    </script>
+    @endpush

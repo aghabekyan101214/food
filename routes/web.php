@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function(){
     return redirect("/admin");
 });
+
 //web page part
 Route::group(['namespace' => 'Site'], function () {
 //    Route::get('/', 'HomeController@index');
@@ -31,7 +32,13 @@ Auth::routes([
 ]);
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth'], function () {
-    Route::resource('/', 'AdminController');
+
+//    for super admin links
+    Route::group(['middleware' => 'superAdmin'], function () {
+        Route::resource('/admins', 'AdminController');
+    });
+
+    Route::get('/', 'WelcomeController@index');
     Route::resource('/categories', 'CategoryController');
     Route::resource('/products', 'ProductController');
     Route::delete('/products/{products_id}/destroy-image/{id}', 'ProductController@destroy_image');

@@ -79,7 +79,7 @@
 
             <ul class="nav" id="side-menu">
 
-                @if(Auth::user()->role == 1)
+                @if(Auth::user()->role == \App\Admin\Admin::ROLE['super'])
                     <li><a href="/admin/admins" class="waves-effect"><i class="mdi mdi-account-star-variant fa-fw"></i>
                             <span class="hide-menu">Admins</span></a>
                     </li>
