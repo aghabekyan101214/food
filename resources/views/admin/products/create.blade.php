@@ -47,10 +47,13 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-md-2">{{$title}} Weight</label>
+                                    <label class="control-label col-md-2">{{$title}} Мeasure</label>
                                     <div class="col-md-9">
-                                        <input type="text" placeholder="Weight" value="{{old("weight") }}" class="form-control" name="weight">
-                                        @error('weight')
+                                        <select name="measure" id="measure" class="form-control">
+                                            <option value="1" @if(old('measure') == 1) selected @endif>Piece</option>
+                                            <option value="2" @if(old('measure') == 2) selected @endif>Kilogram</option>
+                                        </select>
+                                        @error('measure')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>

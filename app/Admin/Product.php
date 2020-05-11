@@ -9,6 +9,11 @@ use App\Admin\Admin\ProductsImage;
 class Product extends Model
 {
 
+    const MEASURE = array(
+        "piece" => 1,
+        "kilogram" => 2,
+    );
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

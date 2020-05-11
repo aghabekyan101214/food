@@ -18,7 +18,7 @@
                                 <th>Image</th>
                                 <th>Description</th>
                                 <th>Category</th>
-                                <th>Weight</th>
+                                <th>Measure</th>
                                 <th>Quantity</th>
                                 <th>Price</th>
                                 <th>Options</th>
@@ -34,7 +34,13 @@
                                 </td>
                                 <td>{{$val->description}}</td>
                                 <td>{{$val->category->name}}</td>
-                                <td>{{$val->weight}}</td>
+                                <td>
+                                    @if($val->measure == \App\Admin\Product::MEASURE['piece'])
+                                        Piece
+                                    @else
+                                        Kilogram
+                                    @endif
+                                </td>
                                 <td>{{$val->quantity}}</td>
                                 <td>{{$val->price}}</td>
                                 <td>

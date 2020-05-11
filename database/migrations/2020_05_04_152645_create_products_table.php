@@ -18,8 +18,8 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->unsignedBigInteger('category_id');
             $table->text('description');
-            $table->integer('weight')->nullable();
-            $table->integer('quantity')->nullable();
+            $table->integer('measure');
+            $table->integer('quantity');
             $table->integer('price');
             $table->timestamps();
 

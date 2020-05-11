@@ -56,8 +56,8 @@ class ProductController extends Controller
             'images' => 'required|array',
             'description' => 'required',
             'price' => 'required',
-            'weight' => '',
-            'quantity' => '',
+            'measure' => 'required',
+            'quantity' => 'required',
         ]);
 
         $images = FileUploadHelper::upload($request->images, ["*"], "products");
@@ -68,7 +68,7 @@ class ProductController extends Controller
         $product->name = $request->name;
         $product->description = $request->description;
         $product->category_id = $request->category;
-        $product->weight = $request->weight;
+        $product->measure = $request->measure;
         $product->quantity = $request->quantity;
         $product->price = $request->price;
         $product->save();
@@ -118,8 +118,8 @@ class ProductController extends Controller
             'images' => 'array',
             'description' => 'required',
             'price' => 'required|numeric',
-            'weight' => '',
-            'quantity' => '',
+            'measure' => 'required',
+            'quantity' => 'required',
         ]);
 
         if (!empty($request->images)) {
@@ -133,7 +133,7 @@ class ProductController extends Controller
         $product->name = $request->name;
         $product->description = $request->description;
         $product->category_id = $request->category;
-        $product->weight = $request->weight;
+        $product->measure = $request->measure;
         $product->quantity = $request->quantity;
         $product->price = $request->price;
         $product->save();
