@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Admin\Category;
 use App\Admin\Product;
 use App\Admin\ProductsImage;
-use App\helpers\FileUploadHelper;
+use App\Helpers\FileUploadHelper;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
