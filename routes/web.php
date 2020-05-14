@@ -16,12 +16,6 @@ Route::get('/', function(){
     return redirect("/admin");
 });
 
-//web page part
-Route::group(['namespace' => 'Site'], function () {
-//    Route::get('/', 'HomeController@index');
-    Route::get('/terms', 'HomeController@terms');
-    Route::get('/privacy-policy', 'HomeController@privacy');
-});
 
 
 //Admin dashboard part
@@ -39,7 +33,14 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     });
 
     Route::get('/', 'WelcomeController@index');
+
+//categories
     Route::resource('/categories', 'CategoryController');
+    Route::post('/categories/{id}/subcategory', 'CategoryController@add_subcategory');
+    Route::delete('/categories/{id}/delete/{sub_id}', 'CategoryController@delete_subcategory');
+    Route::put('/categories/{id}/edit/{sub_id}', 'CategoryController@edit_subcategory');
+
+//products
     Route::resource('/products', 'ProductController');
     Route::delete('/products/{products_id}/destroy-image/{id}', 'ProductController@destroy_image');
 });
