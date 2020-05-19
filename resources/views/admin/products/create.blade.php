@@ -27,14 +27,13 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-2">{{$title}} Category</label>
                                     <div class="col-md-9">
-                                        <select name="category" required class="form-control select2" id="category">
+                                        <select name="category" required class="form-control" id="category">
                                             <option value="">Select Category</option>
                                             @foreach($category as $val)
-                                                <optgroup label="{{ $val->name }}">
+                                                <option value="{{$val->id}}" @if($val->id == old('category')) selected @endif class="optionGroup">{{$val->name}}</option>
                                                     @foreach($val->childrenCategories as $key)
-                                                        <option value="{{$key->id}}" @if($key->id == old('category')) selected @endif >{{$key->name}}</option>
+                                                        <option value="{{$key->id}}" @if($key->id == old('category')) selected @endif class="optionChild">{{$key->name}}</option>
                                                     @endforeach
-                                                </optgroup>
                                             @endforeach
                                         </select>
                                         @error('category')
@@ -126,8 +125,7 @@
 @endsection
 
 @push('head')
-    <!--This is a Select 2 style -->
-    <link href="{{asset('assets/plugins/select2/dist/css/select2.min.css')}}" rel="stylesheet" type="text/css"/>
+
     <style>
         textarea {
             resize: none;
@@ -136,17 +134,15 @@
         input#file-upload-button {
             display: none;
         }
+
+        .optionGroup {
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .optionChild {
+            padding-left: 15px;
+        }
     </style>
 @endpush
 
-@push('foot')
-    <!--Select2 js-->
-    <script src="{{asset('assets/plugins/select2/dist/js/select2.min.js')}}"></script>
-
-    <script !src="">
-
-        $(document).ready(function () {
-            $('#category').select2();
-        })
-    </script>
-@endpush

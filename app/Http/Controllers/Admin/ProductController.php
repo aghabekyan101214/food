@@ -97,7 +97,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        $category = Category::all();
+        $category = Category::with('childrenCategories')->whereNull('parent_id')->get();
         $title = self::TITLE;
         $route = self::ROUTE;
         $action = "Edit";

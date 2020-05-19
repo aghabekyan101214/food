@@ -26,9 +26,13 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-2">{{$title}} Category</label>
                                     <div class="col-md-9">
-                                        <select name="category" required class="form-control">
-                                            @foreach($category as $key)
-                                                <option value="{{$key->id}}" @if($key->id == $product->category_id) selected @endif >{{$key->name}}</option>
+                                        <select name="category" required class="form-control" id="category">
+                                            <option value="">Select Category</option>
+                                            @foreach($category as $val)
+                                                <option value="{{$val->id}}" @if($val->id == $product->category_id) selected @endif class="optionGroup">{{$val->name}}</option>
+                                                @foreach($val->childrenCategories as $key)
+                                                    <option value="{{$key->id}}" @if($key->id == $product->category_id) selected @endif class="optionChild">{{$key->name}}</option>
+                                                @endforeach
                                             @endforeach
                                         </select>
                                         @error('category')
@@ -166,6 +170,15 @@
     <style>
         textarea {
             resize: none;
+        }
+
+        .optionGroup {
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .optionChild {
+            padding-left: 15px;
         }
     </style>
 @endpush
