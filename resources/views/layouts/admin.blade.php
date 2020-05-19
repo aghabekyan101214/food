@@ -93,6 +93,10 @@
                         <span class="hide-menu">Products</span></a>
                 </li>
 
+                <li><a href="/admin/bundles" class="waves-effect"><i class="mdi mdi-gift fa-fw"></i>
+                        <span class="hide-menu">Bundles</span></a>
+                </li>
+
                 <li class="devider"></li>
 
 
