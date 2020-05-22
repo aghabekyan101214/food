@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac35ee96-1fbc-478e-a39f-5bc4dc0c4fba" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/bundles/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/bundles/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/bundles/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -16,14 +18,6 @@
     <execution>
       <executable />
     </execution>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>$product</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>$category</replace>
-    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -130,13 +124,10 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="83" />
-    <option name="y" value="35" />
-    <option name="width" value="1221" />
-    <option name="height" value="669" />
-  </component>
   <component name="ProjectId" id="1ZUwE0j0kKQiLn2RxM6ztFjgGhh" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -147,23 +138,24 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/auth/users" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/bundles" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\food\app\Http\Controllers\Admin" />
+      <recent name="C:\xampp\htdocs\food\app\Admin" />
+      <recent name="D:\xampp2\htdocs\laravel-admin-example\app\Http\Controllers\Admin" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\food\resources\views\admin\bundles" />
+      <recent name="C:\xampp\htdocs\food\resources\views\admin" />
       <recent name="C:\xampp\htdocs\food\resources\views\auth\users" />
       <recent name="C:\xampp\htdocs\food\resources\views\admin\categories\subcategory" />
       <recent name="C:\xampp\htdocs\food\resources\views\admin\categories" />
-      <recent name="C:\xampp\htdocs\food\resources\views" />
-      <recent name="C:\xampp\htdocs\food\resources\views\admin" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\food\app\Http\Controllers\Admin" />
-      <recent name="D:\xampp2\htdocs\laravel-admin-example\app\Http\Controllers\Admin" />
     </key>
   </component>
   <component name="RunManager">
@@ -207,7 +199,11 @@
       <workItem from="1589181533910" duration="609000" />
       <workItem from="1589190402773" duration="2550000" />
       <workItem from="1589448830210" duration="14903000" />
-      <workItem from="1589889468820" duration="3073000" />
+      <workItem from="1589889468820" duration="3135000" />
+      <workItem from="1589898137707" duration="2384000" />
+      <workItem from="1589959042138" duration="3790000" />
+      <workItem from="1590047582441" duration="18884000" />
+      <workItem from="1590124427346" duration="4770000" />
     </task>
     <servers />
   </component>
@@ -219,9 +215,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="704" y="305" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1584952524851" />
-    <state x="627" y="218" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1588671494433">
+    <state x="627" y="218" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1589970740027">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="627" y="218" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589970740027" />
     <state x="627" y="218" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588671494433" />
     <state x="786" y="164" key="RollbackChangesDialog" timestamp="1588677332156">
       <screen x="0" y="0" width="1920" height="1040" />

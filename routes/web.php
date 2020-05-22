@@ -44,5 +44,5 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::resource('/products', 'ProductController');
     Route::delete('/products/{products_id}/destroy-image/{id}', 'ProductController@destroy_image');
 
-    Route::resource('/bundles', 'ProductController');
+    Route::resource('/bundles', 'BundleController');
 });
