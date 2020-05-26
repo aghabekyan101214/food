@@ -17,7 +17,10 @@ class CreateBundlesTable extends Migration
             $table->id();
             $table->string("name", 191);
             $table->string("price", 191);
+            $table->unsignedBigInteger('admin_id');
             $table->timestamps();
+
+            $table->foreign('admin_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

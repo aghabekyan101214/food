@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Admin\Admin;
 use App\Admin\Category;
 use App\Admin\Product;
 use App\Admin\ProductsImage;
 use App\Helpers\FileUploadHelper;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -24,7 +26,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $data = Product::with(['image', 'category'])->get();
+        $data = Product::with(['image', 'category'])->whereHas('category', function ($query) {
+            $query->where('admin_id', Auth::user()->id);
+        })->get();
+
         $title = self::TITLE;
         $route = self::ROUTE;
         return view(self::FOLDER . '.index', compact('title', 'route', 'data'));
@@ -36,7 +41,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $category = Category::with('childrenCategories')->whereNull('parent_id')->get();
+        $category = Category::with('childrenCategories')->whereNull('parent_id')->where('admin_id', Auth::user()->id)->get();
         $title = self::TITLE;
         $route = self::ROUTE;
         $action = "Create";
@@ -97,7 +102,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        $category = Category::with('childrenCategories')->whereNull('parent_id')->get();
+        $category = Category::with('childrenCategories')->whereNull('parent_id')->where('admin_id', Auth::user()->id)->get();
         $title = self::TITLE;
         $route = self::ROUTE;
         $action = "Edit";
@@ -153,14 +158,13 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $images = ProductsImage::where('product_id', $product->id)->get();
-        foreach ($images as $key){
+        foreach ($images as $key) {
             Storage::delete("$key->image");
         }
         Product::destroy($product->id);
 
         return redirect(self::ROUTE);
     }
-
 
 
     public function destroy_image($product, $id)

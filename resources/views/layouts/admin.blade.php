@@ -48,8 +48,6 @@
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-user animated flipInY">
-                        <li><a href="#"><i class="ti-user"></i> My Profile</a></li>
-                        <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
                         <li>
                             <a href="#"
                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -83,7 +81,12 @@
                     <li><a href="/admin/admins" class="waves-effect"><i class="mdi mdi-account-star-variant fa-fw"></i>
                             <span class="hide-menu">Admins</span></a>
                     </li>
-                @endif
+
+                @else
+
+                <li><a href="/admin/users" class="waves-effect"><i class="mdi mdi-account-multiple fa-fw"></i>
+                        <span class="hide-menu">Users</span></a>
+                </li>
 
                 <li><a href="/admin/categories" class="waves-effect"><i class="mdi mdi-hamburger fa-fw"></i>
                         <span class="hide-menu">Categories</span></a>
@@ -96,6 +99,10 @@
                 <li><a href="/admin/bundles" class="waves-effect"><i class="mdi mdi-gift fa-fw"></i>
                         <span class="hide-menu">Bundles</span></a>
                 </li>
+
+
+                @endif
+
 
                 <li class="devider"></li>
 

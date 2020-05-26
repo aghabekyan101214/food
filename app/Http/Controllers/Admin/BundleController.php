@@ -8,6 +8,7 @@ use App\Admin\Product;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class BundleController extends Controller
@@ -26,7 +27,7 @@ class BundleController extends Controller
      */
     public function index()
     {
-        $data = Bundle::all();
+        $data = Bundle::where('admin_id', Auth::user()->id)->get();
         $title = self::TITLE;
         $route = self::ROUTE;
         return view(self::FOLDER . '.index', compact('title', 'route', 'data'));
@@ -38,7 +39,9 @@ class BundleController extends Controller
      */
     public function create()
     {
-        $product = Product::all();
+        $product = Product::with('category')->whereHas('category', function ($query) {
+            $query->where('admin_id', Auth::user()->id);
+        })->get();
 
         $title = self::TITLE;
         $route = self::ROUTE;
@@ -63,6 +66,7 @@ class BundleController extends Controller
         $bundle = new Bundle;
         $bundle->name = $request->name;
         $bundle->price = $request->price;
+        $bundle->admin_id = Auth::user()->id;
         $bundle->save();
 
         $arr = array();
@@ -70,8 +74,6 @@ class BundleController extends Controller
             $arr[$bin]['product_id'] = $key;
             $arr[$bin]['bundle_id'] = $bundle->id;
             $arr[$bin]['quantity'] = $request->quantity[$bin];
-//            $arr[$bin]['created_at'] = Carbon::now();
-//            $arr[$bin]['updated_at'] = Carbon::now();
         }
 
         $bundle->attachedProducts()->createMany($arr);
@@ -96,7 +98,9 @@ class BundleController extends Controller
      */
     public function edit(Bundle $bundle)
     {
-        $product = Product::all();
+        $product = Product::with('category')->whereHas('category', function ($query) {
+            $query->where('admin_id', Auth::user()->id);
+        })->get();
         $title = self::TITLE;
         $route = self::ROUTE;
         $action = "Edit";

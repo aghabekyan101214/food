@@ -1,12 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Model\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    //Path To the View Folder
+    const FOLDER = "admin.users";
+    //Resource Title
+    const TITLE = "Users";
+    //Resource Route
+    const ROUTE = "/admin/users";
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +22,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $data = User::all();
+        $title = self::TITLE;
+        $route = self::ROUTE;
+        return view(self::FOLDER . ".index", compact('title', 'route', 'data'));
     }
 
     /**

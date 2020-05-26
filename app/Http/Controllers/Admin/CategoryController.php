@@ -7,6 +7,7 @@ use App\helpers\SlugHelper;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
@@ -20,7 +21,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $data = Category::whereNull('parent_id')->get();
+        $data = Category::whereNull('parent_id')->where('admin_id', Auth::user()->id)->get();
         $title = self::TITLE;
         $route = self::ROUTE;
         return view(self::FOLDER . '.index', compact('title', 'route', 'data'));
@@ -52,10 +53,10 @@ class CategoryController extends Controller
         $category = new Category();
         $category->name = $request->name;
         $category->slug = SlugHelper::slugify($request->name);
+        $category->admin_id = Auth::user()->id;
         $category->save();
 
         return redirect(self::ROUTE);
-
     }
 
     /**
@@ -126,6 +127,7 @@ class CategoryController extends Controller
             $arr[$bin]['name'] = $data;
             $arr[$bin]['slug'] = SlugHelper::slugify($data);
             $arr[$bin]['parent_id'] = $id;
+            $arr[$bin]['admin_id'] = Auth::user()->id;
             $arr[$bin]['created_at'] = Carbon::now();
             $arr[$bin]['updated_at'] = Carbon::now();
         }
