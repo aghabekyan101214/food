@@ -47,6 +47,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
 
 //for admin (clients) links
     Route::group(['middleware' => 'admin'], function () {
+
+//user
         Route::resource('/users', 'UserController');
 
 //categories

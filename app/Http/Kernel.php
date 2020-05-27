@@ -62,8 +62,15 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+
         // your custom middleware class
         'superAdmin' => \App\Http\Middleware\CheckSuperAdmin::class,
         'admin' => \App\Http\Middleware\CheckAdmin::class,
+
+        // check controller for category, products, bundles
+        'category' => \App\Http\Middleware\Admin\CategoryCheckId::class,
+        'product' => \App\Http\Middleware\Admin\ProductCheckId::class,
+        'bundle' => \App\Http\Middleware\Admin\BundleCheckId::class,
+
     ];
 }

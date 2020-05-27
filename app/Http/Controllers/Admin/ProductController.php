@@ -20,6 +20,19 @@ class ProductController extends Controller
     const TITLE = "Product";
     const ROUTE = "/admin/products";
 
+    public function __construct()
+    {
+        $this->middleware('product', ['only' =>
+            [
+                'show',
+                'edit',
+                'update',
+                'destroy',
+                'destroy_image',
+            ]
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      * @return \Illuminate\Http\Response

@@ -21,6 +21,17 @@ class BundleController extends Controller
     //Resource Route
     const ROUTE = "/admin/bundles";
 
+    public function __construct()
+    {
+        $this->middleware('bundle', ['except' =>
+            [
+                'index',
+                'create',
+                'store'
+            ]
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      * @return \Illuminate\Http\Response
@@ -70,7 +81,7 @@ class BundleController extends Controller
         $bundle->save();
 
         $arr = array();
-        foreach ($request->product as $bin=>$key){
+        foreach ($request->product as $bin => $key) {
             $arr[$bin]['product_id'] = $key;
             $arr[$bin]['bundle_id'] = $bundle->id;
             $arr[$bin]['quantity'] = $request->quantity[$bin];
@@ -88,7 +99,7 @@ class BundleController extends Controller
      */
     public function show(Bundle $bundle)
     {
-       //
+        //
     }
 
     /**
@@ -131,7 +142,7 @@ class BundleController extends Controller
         BundleProduct::where('bundle_id', $bundle->id)->delete();
 
         $arr = array();
-        foreach ($request->product as $bin=>$key){
+        foreach ($request->product as $bin => $key) {
             $arr[$bin]['product_id'] = $key;
             $arr[$bin]['bundle_id'] = $bundle->id;
             $arr[$bin]['quantity'] = $request->quantity[$bin];

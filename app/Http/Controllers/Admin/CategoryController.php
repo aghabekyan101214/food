@@ -15,6 +15,21 @@ class CategoryController extends Controller
     const TITLE = "Category";
     const ROUTE = "/admin/categories";
 
+    public function __construct()
+    {
+        $this->middleware('category', ['only' =>
+            [
+                'show',
+                'edit',
+                'update',
+                'destroy',
+                'add_subcategory',
+                'edit_subcategory',
+                'delete_subcategory',
+            ]
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      * @return \Illuminate\Http\Response
